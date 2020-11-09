@@ -1,28 +1,58 @@
 <template>
-  <div id="app">
-    <img src="./assets/logo.png">
-    <HelloWorld/>
+  <div class="app" id="app">
+    <h1 class="heading">Телефонная книга<br> сотрудников</h1>
+    <main class="app__inner">
+      <EmployeeTable/>
+    </main>
+    <footer class="footer">
+      <p>Test app <a href="https://roistat.com/ru/">roistat</a></p>
+    </footer>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld';
+
+import EmployeeTable from './components/EmployeeTable';
+import AddEmployeeDialog from './components/AddEmployeeDialog';
 
 export default {
   name: 'App',
   components: {
-    HelloWorld,
+    AddEmployeeDialog,
+    EmployeeTable,
   },
 };
 </script>
 
-<style>
+<style scoped>
+.heading {
+  font-size: 1.5em;
+  line-height: 1.3;
+  text-transform: uppercase;
+  font-weight: 300;
+  text-align: center;
+}
+.footer {
+  margin-top: 2em;
+}
+.app {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.app__inner {
+  display: flex;
+  flex-direction: column;
+}
 #app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  font-family: 'Roboto', 'Open Sans', 'Helvetica Neue', 'Arial', sans-serif;
+  font-weight: 300;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
 }
 </style>
