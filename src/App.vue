@@ -2,6 +2,7 @@
   <div class="app" id="app">
     <h1 class="heading">Телефонная книга<br> сотрудников</h1>
     <main class="app__inner">
+      <AddEmployeeDialog/>
       <EmployeeTable/>
     </main>
     <footer class="footer">
