@@ -29,7 +29,6 @@ export const employees = {
       fetch('/static/users.json')
         .then(response => response.json())
         .then((users) => {
-          console.log(users);
           commit('init', users);
         })
         .catch();
