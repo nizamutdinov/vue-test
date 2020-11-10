@@ -20,6 +20,16 @@
         sortable
       >
       </el-table-column>
+      <el-table-column
+        v-slot="scope" width="50">
+        <el-button
+          @click.native.prevent="deleteRow(scope, employeesTree)"
+          type="danger"
+          size="mini"
+          icon="el-icon-delete"
+          circle>
+        </el-button>
+      </el-table-column>
     </el-table>
   </div>
 </template>
@@ -28,14 +38,34 @@
 
 import { createNamespacedHelpers } from 'vuex';
 
-const { mapGetters } = createNamespacedHelpers('employees');
+const { mapGetters, mapMutations, mapState } = createNamespacedHelpers('employees');
 
 export default {
   name: 'EmployeeTable',
   data: () => ({
   }),
+  methods: {
+    ...mapMutations(['removeEmployee']),
+    deleteRow(context) {
+      const userId = context.row.id;
+
+      if (this.employees.some(employee => employee.parentId === userId)) {
+        this.$message.error('Нельзя уволить. У него есть подчиненные. (');
+        return;
+      }
+
+      if (userId != null) {
+        this.removeEmployee(context.row.id);
+        this.$message({
+          message: 'Уволен',
+          type: 'success',
+        });
+      }
+    },
+  },
   computed: {
     ...mapGetters(['employeesTree']),
+    ...mapState(['employees']),
   },
 };
 </script>
