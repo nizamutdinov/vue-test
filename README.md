@@ -1,6 +1,6 @@
 # vue-test application
 
-<h4 align="center"><a href="https://roistat.netlify.app/">Live Demo</a></h2>
+<h4><a href="https://roistat.netlify.app/">Live Demo</a></h2>
 
 ## Build Setup
 
