@@ -1,0 +1,27 @@
+.el-table__body-wrapper::-webkit-scrollbar {
+  z-index: 11;
+  width: 6px
+}
+
+.el-table__body-wrapper::-webkit-scrollbar:horizontal {
+  height: 6px
+}
+
+.el-table__body-wrapper::-webkit-scrollbar-thumb {
+  border-radius: 5px;
+  width: 6px;
+  background: #b4bccc
+}
+
+.el-table__body-wrapper::-webkit-scrollbar-corner {
+  background: #fff
+}
+
+.el-table__body-wrapper::-webkit-scrollbar-track {
+  background: #fff
+}
+
+.el-table__body-wrapper::-webkit-scrollbar-track-piece {
+  background: #fff;
+  width: 6px
+}

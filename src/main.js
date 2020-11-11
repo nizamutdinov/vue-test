@@ -3,6 +3,7 @@ import App from './App';
 import store from './store';
 import './plugins/elementUI';
 import './plugins/v-mask';
+import './styles/index.css';
 
 Vue.config.productionTip = false;
 
