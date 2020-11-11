@@ -14,15 +14,20 @@
         ref="contactForm"
       >
         <el-form-item class="form__item" label="Имя" prop="name">
-          <el-input v-model="contactForm.name"></el-input>
+          <el-input placeholder="Петров Иван" v-model="contactForm.name"></el-input>
         </el-form-item>
 
         <el-form-item label="Телефон" prop="phone">
-          <el-input v-model="contactForm.phone"></el-input>
+          <el-input
+            v-mask="'+7 (###) ###-##-##'"
+            placeholder="+7 (123) 456-78-90"
+            pattern="\+7 \(\d\d\d\) \d\d\d-\d\d-\d\d"
+            v-model="contactForm.phone"
+          ></el-input>
         </el-form-item>
 
         <el-form-item label="Начальник">
-          <el-select v-model="contactForm.parentId" placeholder="Please select a zone">
+          <el-select v-model="contactForm.parentId" placeholder="не выбран">
             <el-option
               :key="chief.name + chief.id"
               v-for="chief in chiefs"
@@ -63,7 +68,7 @@ export default {
       ],
       phone: [
         { required: true, message: 'Пожалуйста введите номер телефона', trigger: 'blur' },
-        { min: 6, max: 12, message: 'Длинна имени должна быть от 6 до 12 символов', trigger: 'blur' },
+        { min: 18, max: 18, message: 'Пожалуйста заполните телефон', trigger: 'blur' },
       ],
     },
   }),
