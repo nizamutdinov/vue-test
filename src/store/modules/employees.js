@@ -1,4 +1,5 @@
 import { v4 as uniqueIdGenerator } from 'uuid';
+import Vue from 'vue';
 import listToTree from '../../utils/tree';
 
 export const employees = {
@@ -17,6 +18,15 @@ export const employees = {
       state.employees.push({ ...payload, id });
     },
     removeEmployee: (state, id) => {
+      if (state.employees.some(employee => employee.parentId === id)) {
+        Vue.prototype.$message.error('Нельзя уволить. У него есть подчиненные. (');
+        return;
+      }
+
+      Vue.prototype.$message({
+        message: 'Уволен',
+        type: 'success',
+      });
       state.employees = state.employees.filter(employee => employee.id !== id);
     },
   },

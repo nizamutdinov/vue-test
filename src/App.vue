@@ -43,17 +43,15 @@ export default {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-}
 
-.app__inner {
-  display: flex;
-  flex-direction: column;
-}
-#app {
   font-family: 'Roboto', 'Open Sans', 'Helvetica Neue', 'Arial', sans-serif;
   font-weight: 300;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   color: #2c3e50;
+}
+.app__inner {
+  display: flex;
+  flex-direction: column;
 }
 </style>

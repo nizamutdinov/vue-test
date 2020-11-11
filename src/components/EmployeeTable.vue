@@ -4,7 +4,7 @@
       class="table"
       :data="employeesTree"
       style="width: 100%"
-      height="40vh"
+      height="45vh"
       row-key="id"
       border
       >
@@ -48,19 +48,7 @@ export default {
     ...mapMutations(['removeEmployee']),
     deleteRow(context) {
       const userId = context.row.id;
-
-      if (this.employees.some(employee => employee.parentId === userId)) {
-        this.$message.error('Нельзя уволить. У него есть подчиненные. (');
-        return;
-      }
-
-      if (userId != null) {
-        this.removeEmployee(context.row.id);
-        this.$message({
-          message: 'Уволен',
-          type: 'success',
-        });
-      }
+      this.removeEmployee(userId);
     },
   },
   computed: {
@@ -72,7 +60,9 @@ export default {
 
 <style scoped>
   .table__wrapper {
-    width: 500px;
+    width: 600px;
+    max-width: 90vw;
+    min-width: 40vw;
     border: 1px solid #ebebeb;
     border-radius: 3px;
     transition: .2s;
